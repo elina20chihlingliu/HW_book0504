@@ -21,7 +21,6 @@ export class Book {
         var indices: number[] = [];
         var notzero: number[] = [];
         var orin = [0, 1, 2, 3, 4]
-        var lastrow = 0
         var booktest = this.bookcount;
         var idx = this.bookcount.indexOf(0);
 
@@ -29,12 +28,10 @@ export class Book {
         indices.push(idx);
         idx = booktest.indexOf(0, idx + 1);
         }
-        // console.log(indices); // [0, 2, 4]
 
         notzero = orin.filter( function( el ) {
             return !indices.includes( el );
           } );
-        // console.log(notzero);
         
         while(notzero.length > 1){
             
@@ -58,8 +55,6 @@ export class Book {
             notzero = orin.filter( function( el ) {
                 return !indices.includes( el );
             } );
-
-
         }
     }
 
