@@ -9,8 +9,8 @@ describe('Book', () => {
 // book.spec.ts
 test('Buy one book', () => {
   const books = new Book();
+  let buying: number[] = [1, 2];
+    books.bnum(buying);
   
-    //books.roll(0);
-  
-  expect(books.price).toBe(100);
+  expect(books.price).toBe(190);
 });
