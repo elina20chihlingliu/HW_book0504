@@ -64,6 +64,13 @@ test('Buy four books(ep 1, 1, 2, 2)', () => {
   expect(books.price).toBe(380);
 });
 
+test('Buy four books(ep 1, 2, 2, 3)', () => {
+  const books = new Book();
+  let buying: number[] = [1, 2, 2, 3];
+  books.bnum(buying);
+  expect(books.price).toBe(370);
+});
+
 test('Buy five books(ep 1, 2, 3, 4, 5)', () => {
   const books = new Book();
   let buying: number[] = [1, 2, 3, 4, 5];
@@ -83,4 +90,20 @@ test('Buy six books(ep 1, 2, 2, 3, 4, 5)', () => {
   let buying: number[] = [1, 2, 2, 3, 4, 5];
   books.bnum(buying);
   expect(books.price).toBe(475);
+});
+
+test('Buy eight books(ep 1, 1, 2, 2, 3, 3, 4, 5)', () => {
+  const books = new Book();
+  let buying: number[] = [1, 1, 2, 2, 3, 3, 4, 5];
+  books.bnum(buying);
+  expect(books.price).toBe(640);
+});
+
+test('Buy eight books(ep 1*5, 2*5, 3*4, 4*5, 5*4)', () => {
+  
+  const books = new Book();
+  let buying: number[] = [1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 4, 5, 5, 5, 5];
+  books.bnum(buying);
+  expect(books.price).toBe(1765);
+
 });

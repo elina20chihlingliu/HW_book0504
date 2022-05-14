@@ -21,6 +21,7 @@ export class Book {
         var indices: number[] = [];
         var notzero: number[] = [];
         var orin = [0, 1, 2, 3, 4]
+        var lastrow = 0
         var booktest = this.bookcount;
         var idx = this.bookcount.indexOf(0);
 
@@ -35,15 +36,20 @@ export class Book {
           } );
         // console.log(notzero);
         
-    
-        //notzero = 5-indices.length
-
         while(notzero.length > 1){
+            
+            if (Math.max(...booktest)==1 && notzero.length == 3 && this._price!=300)
+            {
+                this._price = this._price + 100*5*(discount[4]) - 2*100*4*(discount[3]);
+                break;
+            }
+
             this._price = this._price - 100*notzero.length*(discount[notzero.length-1]);
             for (let eachnot of notzero) {
                 booktest[eachnot] -=1;
             }
-            indices = []
+
+            indices = [];
             idx = booktest.indexOf(0);
             while (idx != -1) {
                 indices.push(idx);
@@ -51,7 +57,9 @@ export class Book {
             }
             notzero = orin.filter( function( el ) {
                 return !indices.includes( el );
-              } );
+            } );
+
+
         }
     }
 
